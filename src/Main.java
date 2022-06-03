@@ -17,15 +17,9 @@ public class Main {
         System.out.println(result);
 
         System.out.println("Saving dice rolls to file");
-        try {
-            FileWriter fileWriter = new FileWriter(numberOfDice + " " + numberOfSides + "-sided dice.txt");
-            fileWriter.write(String.valueOf(result));
-            fileWriter.close();
-            System.out.println("Dice rolls have been saved to file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        String fileName = numberOfDice + " " + numberOfSides + "-sided dice";
+        String fileContents = String.valueOf(result);
+        saveFile(fileName, fileContents);
     }
 
     public static ArrayList<Integer> rollDice(int numberOfDice, int numberOfSides) {
@@ -38,5 +32,16 @@ public class Main {
         }
 
         return diceRolls;
+    }
+
+    public static void saveFile(String fileName, String fileContents) {
+        String extension = ".txt";
+        try (FileWriter fileWriter = new FileWriter(fileName + extension)) {
+            fileWriter.write(fileContents);
+            System.out.println("Contents have been saved to file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }
