@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="diceRoller:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/diceRoller_jar</output-path>
-    <root id="archive" name="diceRoller.jar">
-      <element id="module-output" name="diceRoller" />
-    </root>
-  </artifact>
-</component>
